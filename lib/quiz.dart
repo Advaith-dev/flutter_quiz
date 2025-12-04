@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/questions.dart';
+import 'package:flutter_quiz/results_screen.dart';
 import 'package:flutter_quiz/start_page.dart';
 import 'package:flutter_quiz/data/questions.dart';
 
@@ -24,10 +25,20 @@ class _QuestionsState extends State<Quiz> {
     chosenAns.add(ans);
     if (chosenAns.length == questions.length) {
       setState(() {
-        chosenAns = [];
-        activeScreen = 'start-screen';
+        activeScreen = 'results-screen';
       });
     }
+  }
+
+  int checkAns() {
+    int numCorrectAns = 0;
+    for (int i = 0; i < questions.length; i++) {
+      if (questions[i].ansoptions[0] == chosenAns[i]) {
+        numCorrectAns += 1;
+      }
+    }
+    chosenAns = [];
+    return numCorrectAns;
   }
 
   @override
@@ -37,6 +48,8 @@ class _QuestionsState extends State<Quiz> {
       currentScreen = StartPage(switchScreen);
     } else if (activeScreen == "question-screen") {
       currentScreen = Questions(chooseAns);
+    } else if (activeScreen == "results-screen") {
+      currentScreen = ResultsScreen(checkAns,switchScreen);
     }
     return MaterialApp(
       debugShowCheckedModeBanner: false,
