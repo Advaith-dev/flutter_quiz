@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/quiz.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SummaryScreen extends StatelessWidget {
@@ -28,7 +27,7 @@ class SummaryScreen extends StatelessWidget {
                         label: Text(
                           data['question_index'].toString(),
                           style: GoogleFonts.lato(
-                            color: Colors.white,
+                            color: const Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15,
                           ),
                         ),
@@ -36,7 +35,7 @@ class SummaryScreen extends StatelessWidget {
                             (data['correct_ans'].toString() ==
                                 data['user_ans'].toString())
                             ? Color.fromARGB(255, 54, 250, 0)
-                            : Color.fromARGB(255, 217, 0, 0),
+                            : Color.fromARGB(255, 255, 0, 0),
                         padding: const EdgeInsets.all(6.0),
                       ),
                       const SizedBox(width: 10),
