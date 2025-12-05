@@ -64,12 +64,12 @@ lib/
 ├── data/
 │   └── questions.dart       # Contains the raw list of questions/answers
 ├── models/
-│   └── quiz_questions.dart  # Data model defining the structure of a question
-├── answer_button.dart       # Reusable widget for quiz answer options
-├── gradient_custom.dart     # Custom background gradient styling
-├── main.dart                # Entry point of the application
-├── questions.dart           # Screen logic for displaying questions
-├── quiz.dart                # State management handling screen switching
-├── results_screen.dart      # Scrollable result view widget
-├── start_page.dart          # The initial landing screen
-└── summary_screen.dart      # The detailed results summary UI
+│   └── quiz_questions.dart  # Data model defining the structure of a question.
+├── answer_button.dart       # Reusable widget for quiz answer options.
+├── gradient_custom.dart     # Custom background gradient styling.
+├── main.dart                # Entry point of the application.
+├── questions.dart           # Screen logic for displaying questions.
+├── quiz.dart                # State management handling screen switching.
+├── results_screen.dart      # Scrollable result view widget.
+├── start_page.dart          # The initial landing screen.
+└── summary_screen.dart      # The detailed results summary UI.
