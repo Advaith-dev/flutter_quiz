@@ -14,9 +14,12 @@ class Quiz extends StatefulWidget {
 class _QuestionsState extends State<Quiz> {
   List<String> chosenAns = [];
   String? activeScreen = "start-screen";
+  List<Map<String, String>> summaryMap = [];
 
   void switchScreen() {
     setState(() {
+      chosenAns = [];
+      summaryMap = [];
       activeScreen = "question-screen";
     });
   }
@@ -33,11 +36,16 @@ class _QuestionsState extends State<Quiz> {
   int checkAns() {
     int numCorrectAns = 0;
     for (int i = 0; i < questions.length; i++) {
+      summaryMap.add({
+        "question_index": i.toString(),
+        "question": questions[i].question,
+        "correct_ans": questions[i].ansoptions[0],
+        "user_ans": chosenAns[i],
+      });
       if (questions[i].ansoptions[0] == chosenAns[i]) {
         numCorrectAns += 1;
       }
     }
-    chosenAns = [];
     return numCorrectAns;
   }
 
@@ -49,7 +57,7 @@ class _QuestionsState extends State<Quiz> {
     } else if (activeScreen == "question-screen") {
       currentScreen = Questions(chooseAns);
     } else if (activeScreen == "results-screen") {
-      currentScreen = ResultsScreen(checkAns,switchScreen);
+      currentScreen = ResultsScreen(checkAns, summaryMap, switchScreen);
     }
     return MaterialApp(
       debugShowCheckedModeBanner: false,

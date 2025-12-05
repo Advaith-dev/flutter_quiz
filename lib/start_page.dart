@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/gradient_custom.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage(this.startQuiz, {super.key});
@@ -29,11 +30,17 @@ class StartPage extends StatelessWidget {
           SizedBox(height: 20),
           OutlinedButton.icon(
             onPressed: startQuiz,
-            icon: Icon(Icons.arrow_right, color: Colors.white),
-            label: const Text(
-              'Start Quiz',
-              style: TextStyle(color: Colors.white),
+            icon: Icon(
+              Icons.arrow_right,
+              color: const Color.fromARGB(255, 0, 26, 255),
             ),
+            label: Text(
+                "Start Quiz",
+                style: GoogleFonts.lato(
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 20,
+               ),  
+            ),  
           ),
         ],
       ),
